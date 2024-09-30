@@ -1,0 +1,175 @@
+body {
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #dcd2d2; 
+  color: #333;
+  margin: 40px;
+  padding: 0;
+}
+.container {
+  margin: 40px; 
+}
+h1 {
+  margin-top: 20px;
+}
+
+.envelopes-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.envelope {
+  position: relative;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.envelope img {
+  width: 200px;  
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.envelope:hover img {
+  transform: scale(1.05);  
+}
+
+/* Styling for the bubble */
+.bubble {
+  display: none;  /* Hidden by default */
+  position: absolute;
+  top: 100%;  /* Appears right below the envelope */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: #333;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  margin-top: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;  
+}
+
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white; 
+}
+
+
+.envelope.clicked .bubble {
+  display: block;
+  opacity: 1;
+}
+.hidden-message {
+  display: none;
+  position: absolute;
+  top: 180px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  color: #154170;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.envelope.show .hidden-message {
+  display: block;
+}
+.portrait-poetry-container {
+  display: flex; 
+  justify-content: space-between; 
+  margin-top: 30px;
+  margin-bottom: 70px;
+  
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 250px; 
+  height: 400px; 
+  perspective: 1000px;
+  display: inline-block; 
+  vertical-align: top; 
+  margin: 20px;
+  cursor: pointer;
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+/* Front side (Image) */
+.flip-card-front {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%; /* Maintain original height */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Back side (Poetry) */
+.flip-card-back {
+  background-color: #ffecf0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.poetry {
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+}
+.row {
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the content */
+}
+
+.column {
+  flex: 1; /* Equal width for all columns */
+   width: 50%;
+  padding: 70px; /* Space around each column */
+  max-width: 200px; /* Max width for images */
+}

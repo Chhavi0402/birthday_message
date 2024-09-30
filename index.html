@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Birthday Messages</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <h1>Happy Birthday Penguin <3</h1>
+
+    <!-- ... (previous code remains the same) ... -->
+    <div class="envelopes-container">
+        <div class="envelope" onclick="showMessage(this, 'The person who is both incredibly driven and effortlessly kind—a truly adorable and lovable person.🎉')">
+            <img src="envelope.png" alt="Cat Envelope">
+            <div class="bubble"></div>
+        </div>
+        <div class="envelope" onclick="showMessage(this, 'The person with whom the simplest moments, like hunting for ice cream, on a random road , feels special. ')">
+            <img src="envelope.png" alt="Bear Envelope">
+            <div class="bubble"></div>
+        </div>
+        <div class="envelope" onclick="showMessage(this, 'The one who makes this world a better place . The best zombie to exist, literally ')">
+            <img src="envelope.png" alt="Dog Envelope">
+            <div class="bubble"></div>
+        </div>
+        <div class="envelope" onclick="showMessage(this, 'The one who’s so determined and focused,he aims high and work relentlessly to reach his goals.')">
+            <img src="envelope.png" alt="Elephant Envelope">
+            <div class="bubble"></div>
+        </div>
+    </div>
+    <div class="portrait-poetry-container">
+        <div class="row">
+            <div class="column">
+                <div class="flip-card" data-audio="love song (online-audio-converter.com).mp3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="sunrise and us.jpg" alt="Portrait" class="portrait">
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="poetry">
+                                "In the album of life, our pages turn,<br>
+                                With stories of laughter and moments well spun.<br>
+                                Each chapter a canvas, painted with grace,<br>
+                                Moments we cherish, in time's warm embrace. "
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="column">
+                <div class="flip-card" data-audio="paris in rain (online-audio-converter.com).mp3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="aesthetic.jpg" alt="Portrait 2" class="portrait">
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="poetry">
+                                "With echoes of joy and memories sweet,<br>
+                                Every moment with you is a treat.<br>
+                                Through shared silly secrets and glances that shine,<br>
+                                In the warmth of your friendship, my heart feels divine."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="column">
+                <div class="flip-card" data-audio="takes two (online-audio-converter.com).mp3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="teddy_bear.jpg" alt="Portrait 3" class="portrait">
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="poetry">
+                                "In the warmth of our bond, we freely confide,<br>
+                                In this journey together, I’m blessed to have you by my side.<br>
+                                Together we explore, embracing each day,<br>
+                                Creating our tale in a vibrant array."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="column">
+                <div class="flip-card" data-audio="zehen (online-audio-converter.com).mp3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="us and us.jpg" alt="Portrait 4" class="portrait">
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="poetry">
+                                "In life's chaos, you're my peaceful nest,<br>
+                                With you, my heart finds its sweet rest.<br>
+                                These little moments, forever I'll hold,<br>
+                                Treasured memories, never to grow old."
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flipCards = document.querySelectorAll('.flip-card');
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            flipCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const audioFile = card.getAttribute('data-audio');
+                    audioPlayer.src = audioFile;
+                    audioPlayer.play();
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    audioPlayer.pause();
+                    audioPlayer.currentTime = 0;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
